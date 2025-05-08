@@ -1,0 +1,405 @@
+/* style.css */
+
+/* --- Root Variables and Basic Reset --- */
+:root {
+	--brand-color: #8a2be2; /* Purple */
+	--brand-color-light: #9370db; /* Lighter Purple */
+	--brand-color-dark: #4b0082; /* Darker Purple */
+
+	/* Light Mode Variables */
+	--bg-color: #ffffff;
+	--text-color: #333333;
+	--card-bg: #f9f9f9;
+	--card-border: #e0e0e0;
+	--input-bg: #ffffff;
+	--input-border: #cccccc;
+	--input-focus-border: var(--brand-color);
+	/* --code-bg: #f0f0f0; /* Light background for code blocks in light mode */
+	--code-bg: #2d2d2d; /* Dark background for code blocks, matching Prism Tomorrow Night */
+	--code-text: #333;
+	--link-color: var(--brand-color);
+	--button-bg: var(--brand-color);
+	--button-text: #ffffff;
+	--button-hover-bg: var(--brand-color-light);
+	--scrollbar-thumb-bg: #c1c1c1;
+	--scrollbar-track-bg: #f1f1f1;
+	--input-focus-shadow: rgba(147, 112, 219, 0.25); /* Lighter purple with alpha for focus */
+}
+
+/* Dark Mode Variable Overrides */
+body.dark-mode {
+	--bg-color: #1e1e1e;
+	--text-color: #e0e0e0;
+	--card-bg: #2a2a2a;
+	--card-border: #3c3c3c;
+	--input-bg: #333333;
+	--input-border: #555555;
+	--code-bg: #2d2d2d; /* Dark background for code blocks, matching Prism Tomorrow Night */
+	--code-text: #ccc;
+	--button-hover-bg: var(--brand-color-dark);
+	--scrollbar-thumb-bg: #555;
+	--scrollbar-track-bg: #333;
+	--input-focus-shadow: rgba(
+		147,
+		112,
+		219,
+		0.3
+	); /* Lighter purple with alpha for focus in dark mode */
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	line-height: 1.6;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
+	padding: 20px;
+}
+
+/* --- Header Section --- */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid var(--card-border);
+}
+
+header h1 {
+	color: var(--brand-color);
+	font-size: 2.5em;
+}
+
+.logo {
+	/* Small logo next to the title */
+	height: 2.5em; /* Set height relative to h1 font size */
+	width: auto; /* Maintain aspect ratio */
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.header-content {
+	display: flex;
+	align-items: center; /* Vertically align logo and title */
+	gap: 15px; /* Space between logo and title */
+}
+
+.logo-js img {
+	height: 2.5em; /* Set height relative to h1 font size */
+}
+
+/* --- Dark Mode Toggle Switch --- */
+.theme-switch-wrapper {
+	display: flex;
+	align-items: center;
+}
+.theme-switch {
+	/* Container for the switch */
+	display: inline-block;
+	height: 24px;
+	position: relative;
+	width: 44px;
+}
+.theme-switch input {
+	/* Hide the default checkbox */
+	display: none;
+}
+.slider {
+	/* The track of the switch */
+	background-color: #ccc;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 0.4s;
+	border-radius: 24px; /* Make it pill-shaped */
+}
+.slider:before {
+	/* The knob of the switch */
+	background-color: #fff;
+	bottom: 3px;
+	content: '';
+	height: 18px;
+	left: 3px;
+	position: absolute;
+	transition: 0.4s;
+	width: 18px;
+	border-radius: 50%;
+}
+input:checked + .slider {
+	/* Style for when switch is 'on' (dark mode) */
+	background-color: var(--brand-color);
+}
+input:checked + .slider:before {
+	/* Move the knob when 'on' */
+	transform: translateX(20px);
+}
+.theme-switch-wrapper span {
+	/* Label for the switch */
+	margin-left: 8px;
+	font-size: 0.9em;
+}
+
+/* --- Configurator Grid Layout --- */
+.configurator-grid {
+	display: grid;
+	/* Creates a responsive grid that fills columns with cards of min 350px width */
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+/* --- Configuration Card Styling --- */
+.config-card {
+	background-color: var(--card-bg);
+	border: 1px solid var(--card-border);
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+	transition:
+		background-color 0.3s ease,
+		border-color 0.3s ease;
+}
+
+.config-card h3 {
+	/* Title of the configuration option */
+	color: var(--brand-color-light);
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-size: 1.4em;
+}
+
+.config-card p.description {
+	/* Description text for the option */
+	font-size: 0.9em;
+	margin-bottom: 15px;
+	opacity: 0.85;
+}
+
+/* --- Input Element Styling (Number, Select) --- */
+.config-card label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-size: 0.95em;
+}
+
+.config-card input[type='number'],
+.config-card select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid var(--input-border);
+	border-radius: 4px;
+	background-color: var(--input-bg);
+	color: var(--text-color);
+	font-size: 1em;
+}
+.config-card input[type='number']:focus,
+.config-card select:focus {
+	outline: none;
+	border-color: var(--input-focus-border);
+	box-shadow: 0 0 0 2px var(--input-focus-shadow);
+}
+
+/* --- Custom Checkbox (Boolean) Styling --- */
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	position: relative; /* Needed for positioning the custom checkbox */
+}
+.checkbox-container input[type='checkbox'] {
+	/* Hide the original checkbox */
+	opacity: 0;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.checkbox-container .label-text {
+	/* Text label for the checkbox */
+	margin-left: 30px; /* Space for the custom checkbox */
+	font-weight: normal;
+	cursor: pointer;
+	user-select: none; /* Prevent text selection on click */
+}
+.checkbox-container .custom-checkbox {
+	/* The visible custom checkbox */
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 20px;
+	height: 20px;
+	background-color: var(--input-bg);
+	border: 2px solid var(--input-border);
+	border-radius: 4px;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease;
+	cursor: pointer;
+}
+.checkbox-container .custom-checkbox::after {
+	/* The checkmark symbol */
+	content: '';
+	position: absolute;
+	display: none; /* Hidden by default */
+	left: 6px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: solid var(--button-text); /* Checkmark color */
+	border-width: 0 3px 3px 0;
+	transform: rotate(45deg);
+}
+.checkbox-container input[type='checkbox']:checked ~ .custom-checkbox {
+	/* Styles when checked */
+	background-color: var(--brand-color);
+	border-color: var(--brand-color);
+}
+.checkbox-container input[type='checkbox']:checked ~ .custom-checkbox::after {
+	/* Show checkmark when checked */
+	display: block;
+}
+.checkbox-container input[type='checkbox']:focus + .custom-checkbox {
+	/* Focus style for accessibility */
+	box-shadow: 0 0 0 2px var(--input-focus-shadow);
+}
+
+/* --- Example Section Styling (Code Blocks) --- */
+.example-section {
+	margin-top: 15px;
+	font-size: 0.9em;
+}
+.example-section h4 {
+	/* "Example:" heading */
+	margin-bottom: 8px;
+	opacity: 0.9;
+	font-size: 1em;
+}
+.example-section p.example-note {
+	/* Notes for specific examples */
+	font-style: italic;
+	opacity: 0.7;
+	margin-bottom: 10px;
+	font-size: 0.85em;
+}
+
+/* Styling for <pre> elements used by Prism.js */
+pre[class*='language-'] {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto; /* Enables horizontal scroll if content is too wide */
+	border-radius: 6px;
+	background-color: var(
+		--code-bg
+	) !important; /* Use our theme variable, important to override Prism if needed */
+	border: 1px solid var(--card-border);
+	font-size: 0.85em; /* Slightly smaller font for code */
+	max-height: 200px; /* Limit height, becomes scrollable if content exceeds this */
+}
+
+/* Custom scrollbar for code blocks (WebKit browsers) */
+pre[class*='language-']::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+pre[class*='language-']::-webkit-scrollbar-track {
+	background: var(--scrollbar-track-bg);
+	border-radius: 4px;
+}
+pre[class*='language-']::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb-bg);
+	border-radius: 4px;
+}
+pre[class*='language-']::-webkit-scrollbar-thumb:hover {
+	background: var(--brand-color-light); /* Highlight scrollbar on hover */
+}
+
+/* --- Output Section Styling (Generated Config) --- */
+.output-section {
+	margin-top: 30px;
+	padding: 20px;
+	background-color: var(--card-bg);
+	border: 1px solid var(--card-border);
+	border-radius: 8px;
+}
+.output-section h2 {
+	color: var(--brand-color);
+	margin-bottom: 15px;
+}
+#generatedConfig {
+	/* Textarea for the JSON output */
+	width: 100%;
+	min-height: 200px;
+	padding: 15px;
+	border: 1px solid var(--input-border);
+	border-radius: 4px;
+	font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+	font-size: 0.9em;
+	background-color: var(--code-bg); /* Use consistent code background */
+	color: var(--code-text); /* Use consistent code text color */
+	resize: vertical; /* Allow vertical resizing */
+	white-space: pre; /* Preserve whitespace and newlines */
+	overflow: auto; /* Add scrollbars if content overflows */
+}
+
+/* --- Action Buttons Styling --- */
+.actions {
+	margin-top: 20px;
+	display: flex;
+	gap: 15px; /* Space between buttons */
+}
+button {
+	padding: 12px 25px;
+	background-color: var(--button-bg);
+	color: var(--button-text);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1em;
+	font-weight: bold;
+	transition: background-color 0.2s ease;
+}
+button:hover {
+	background-color: var(--button-hover-bg);
+}
+button:disabled {
+	/* Style for disabled button */
+	background-color: #cccccc;
+	cursor: not-allowed;
+}
+body.dark-mode button:disabled {
+	/* Disabled button in dark mode */
+	background-color: #555555;
+	color: #888888;
+}
+
+/* --- Footer Section Styling --- */
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding-top: 20px;
+	border-top: 1px solid var(--card-border);
+	font-size: 0.9em;
+	opacity: 0.7;
+}
+footer a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+footer a:hover {
+	text-decoration: underline;
+}
