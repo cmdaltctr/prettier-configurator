@@ -1,6 +1,6 @@
 # Prettier Configurator
 
-This project helps configure Prettier settings.
+A web application to help configure Prettier settings. It provides a user interface to modify Prettier options and generate a .prettierrc.json file.
 
 ## Project Structure
 
