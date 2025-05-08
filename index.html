@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Prettier Configurator</title>
+		<!-- Main stylesheet for the application -->
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+		<!-- Prism.js "Tomorrow Night" Theme CSS from CDN. This styles the code blocks. -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Header Section: Contains the main title and theme switcher -->
+		<header>
+			<div class="header-content">
+				<img
+					src="src/images/logo-prettier.png"
+					class="logo"
+				/>
+				<h1>Prettier Configurator</h1>
+			</div>
+			<!-- Theme Switcher: Allows toggling between light and dark modes -->
+			<div class="theme-switch-wrapper">
+				<label
+					class="theme-switch"
+					for="themeSwitch"
+				>
+					<input
+						type="checkbox"
+						id="themeSwitch"
+					/>
+					<span class="slider round"></span>
+				</label>
+				<span>Dark Mode</span>
+			</div>
+		</header>
+
+		<!-- Main Content Area -->
+		<main>
+			<!-- Configurator Grid: This is where individual Prettier option cards will be dynamically inserted by JavaScript -->
+			<section
+				id="configuratorGrid"
+				class="configurator-grid"
+			>
+				<!-- Configuration cards will be injected here by JavaScript (from js/ui.js) -->
+			</section>
+
+			<!-- Output Section: Displays the generated Prettier configuration and provides a download button -->
+			<section class="output-section">
+				<h2>Your Prettier Configuration (`.prettierrc.json`)</h2>
+				<!-- Textarea to display the generated JSON configuration -->
+				<textarea
+					id="generatedConfig"
+					readonly
+					rows="10"
+					placeholder="Your .prettierrc.json content will appear here..."
+				></textarea>
+				<!-- Action Buttons: Currently only a download button -->
+				<div class="actions">
+					<button
+						id="downloadButton"
+						disabled
+					>
+						Download .prettierrc.json
+					</button>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer Section: Contains credits and links -->
+		<footer>
+			<p>Created with 💜. Configure your Prettier settings with ease!</p>
+			<p>
+				Uses
+				<a
+					href="https://prettier.io/"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Prettier</a
+				>
+				options &
+				<a
+					href="https://prismjs.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Prism.js</a
+				>
+				for syntax highlighting.
+			</p>
+		</footer>
+
+		<!-- Prism.js Core JavaScript from CDN -->
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+		<!-- Prism.js Autoloader Plugin from CDN: Automatically loads language definitions as needed -->
+		<!-- The data-dependencies-path tells the autoloader where to find language component files on the CDN -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"
+			data-dependencies-path="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/"
+		></script>
+
+		<!-- Main application JavaScript file (module type for import/export syntax) -->
+		<script
+			type="module"
+			src="js/main.js"
+		></script>
+	</body>
+</html>
