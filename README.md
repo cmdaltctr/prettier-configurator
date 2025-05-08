@@ -27,7 +27,7 @@ A web application to help configure Prettier settings. It provides a user interf
 
 ## Usage
 
-1. Download the file to your computer.
+1. Download the file to your computer, and setup a localhost server via VS Code etc.
 2. Open `index.html` in your web browser.
 3. Modify the Prettier options using the user interface.
 4. Click the "Generate .prettierrc.json" button to generate the configuration file.
