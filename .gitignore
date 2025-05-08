@@ -45,3 +45,11 @@ dist/             # All built/bundled code for distribution
 # Sensitive Files
 #################
 *.env             # Exclude environment variable files
+.env.local       # Exclude local environment variable files
+.env.development.local # Exclude development environment variable files
+test/*
+# API keys and sensitive information
+config.json
+/config/
+secrets.txt
+/secrets/
