@@ -21,17 +21,18 @@ A web application to help configure Prettier settings. It provides a user interf
 
 - [`index.html`](index.html): The main HTML file that provides the structure and content of the web page.
 - [`style.css`](style.css): Contains the CSS rules for styling the web page.
-- [`js/configData.js`](js/configData.js): Likely holds data related to Prettier configurations or settings.
-- [`js/main.js`](js/main.js): The main JavaScript file, likely containing the core logic and initialisation.
+- [`js/configData.js`](js/configData.js): Holds data related to Prettier configurations or settings.
+- [`js/main.js`](js/main.js): The main JavaScript file, containing the core logic and initialisation.
 - [`js/ui.js`](js/ui.js): Contains JavaScript code related to the user interface and handling user interactions.
 
 ## Usage
 
-1. Open `index.html` in your web browser.
-2. Modify the Prettier options using the user interface.
-3. Click the "Generate .prettierrc.json" button to generate the configuration file.
-4. Save the generated `.prettierrc.json` file to your project.
-5. Run Prettier in your project to format your code according to the configured settings.
+1. Download the file to your computer.
+2. Open `index.html` in your web browser.
+3. Modify the Prettier options using the user interface.
+4. Click the "Generate .prettierrc.json" button to generate the configuration file.
+5. Save the generated `.prettierrc.json` file to your project.
+6. Run Prettier in your project to format your code according to the configured settings.
 
 ## Additional Information
 
