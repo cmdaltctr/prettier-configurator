@@ -34,6 +34,7 @@ node_modules/ # Exclude all npm/yarn dependencies (even if have some for testing
 
 # Test/Example files #
 ######################
+test/*				# Test files
 test/results/       # Test output files (if use a testing framework)
 example/build/      # If you have a build process for an example page
 *.tmp               # Temporary files created during testing
@@ -47,7 +48,6 @@ dist/             # All built/bundled code for distribution
 *.env             # Exclude environment variable files
 .env.local       # Exclude local environment variable files
 .env.development.local # Exclude development environment variable files
-test/*
 # API keys and sensitive information
 config.json
 /config/

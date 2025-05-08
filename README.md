@@ -39,6 +39,29 @@ A web application to help configure Prettier settings. It provides a user interf
 - The `configData.js` file contains the default Prettier settings and options.
 - The `main.js` file handles the logic for generating the `.prettierrc.json` file based on the user's selections.
 
+## Local Prism.js Setup
+
+To avoid potential CORS errors when opening `index.html` directly in the browser, you can download and host the Prism.js files locally. Follow these steps:
+
+1. Create a directory named `lib/prismjs` in the project root.
+2. Download the following files from the Prism.js CDN and place them in the `lib/prismjs` directory:
+   - [https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css](https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css) (Save as `lib/prismjs/prism-tomorrow.min.css`)
+   - [https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js](https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js) (Save as `lib/prismjs/prism-core.min.js`)
+   - [https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js](https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js) (Save as `lib/prismjs/prism-autoloader.min.js`)
+3. Uncommented the `index.html` file to reference the local Prism.js files instead of the CDN URLs, then commentted the CDN URLs:
+
+   ```html
+   <link
+   	rel="stylesheet"
+   	href="lib/prismjs/prism-tomorrow.min.css"
+   />
+   <script src="lib/prismjs/prism-core.min.js"></script>
+   <script
+   	src="lib/prismjs/prism-autoloader.min.js"
+   	data-dependencies-path="lib/prismjs/"
+   ></script>
+   ```
+
 ## License
 
 This project is licensed under the MIT License - see [`License.md`](License.md) for details.

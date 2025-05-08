@@ -185,7 +185,7 @@ function updateExampleDisplay(optionData, inputElement, cardElement) {
 			// Assuming a formatCode function is available globally or imported
 			// This function would take the code and an options object
 			const formatOptions = { [optionData.id]: parseFloat(inputElement.value) };
-			// Replace this with the actual call to your formatting library
+			// Replace this with the actual call to the formatting library
 			// For example: newExampleOutput = Prettier.format(newExampleInput, { ...formatOptions, parser: exampleLanguage });
 			newExampleOutput = `// Dynamic formatting for ${optionData.id} with value ${inputElement.value}\n${newExampleInput}`; // Placeholder output
 		} catch (error) {
