@@ -2,16 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Prettier Configurator</title>
 		<!-- Main stylesheet for the application -->
-		<link
-			rel="stylesheet"
-			href="style.css"
-		/>
+		<link rel="stylesheet" href="style.css" />
 		<!-- Prism.js "Tomorrow Night" Theme CSS from CDN. This styles the code blocks. -->
 		<link
 			rel="stylesheet"
@@ -22,22 +16,13 @@
 		<!-- Header Section: Contains the main title and theme switcher -->
 		<header>
 			<div class="header-content">
-				<img
-					src="src/images/logo-prettier.png"
-					class="logo"
-				/>
+				<img src="src/images/logo-prettier.png" class="logo" />
 				<h1>Prettier Configurator</h1>
 			</div>
 			<!-- Theme Switcher: Allows toggling between light and dark modes -->
 			<div class="theme-switch-wrapper">
-				<label
-					class="theme-switch"
-					for="themeSwitch"
-				>
-					<input
-						type="checkbox"
-						id="themeSwitch"
-					/>
+				<label class="theme-switch" for="themeSwitch">
+					<input type="checkbox" id="themeSwitch" />
 					<span class="slider round"></span>
 				</label>
 				<span>Dark Mode</span>
@@ -47,10 +32,7 @@
 		<!-- Main Content Area -->
 		<main>
 			<!-- Configurator Grid: This is where individual Prettier option cards will be dynamically inserted by JavaScript -->
-			<section
-				id="configuratorGrid"
-				class="configurator-grid"
-			>
+			<section id="configuratorGrid" class="configurator-grid">
 				<!-- Configuration cards will be injected here by JavaScript (from js/ui.js) -->
 			</section>
 
@@ -66,10 +48,7 @@
 				></textarea>
 				<!-- Action Buttons: Currently only a download button -->
 				<div class="actions">
-					<button
-						id="downloadButton"
-						disabled
-					>
+					<button id="downloadButton" disabled>
 						Download .prettierrc.json
 					</button>
 				</div>
@@ -81,17 +60,11 @@
 			<p>Created with 💜. Configure your Prettier settings with ease!</p>
 			<p>
 				Uses
-				<a
-					href="https://prettier.io/"
-					target="_blank"
-					rel="noopener noreferrer"
+				<a href="https://prettier.io/" target="_blank" rel="noopener noreferrer"
 					>Prettier</a
 				>
 				options &
-				<a
-					href="https://prismjs.com/"
-					target="_blank"
-					rel="noopener noreferrer"
+				<a href="https://prismjs.com/" target="_blank" rel="noopener noreferrer"
 					>Prism.js</a
 				>
 				for syntax highlighting.
@@ -108,10 +81,7 @@
 		></script>
 
 		<!-- Main application JavaScript file (module type for import/export syntax) -->
-		<script
-			type="module"
-			src="js/main.js"
-		></script>
+		<script type="module" src="js/main.js"></script>
 
 		<!-- Local Prism.js Files (Commented out - Use CDN by default, see README.md if you want to run without local server) -->
 		<!--
